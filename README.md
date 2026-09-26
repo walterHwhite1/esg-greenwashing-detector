@@ -1,0 +1,1 @@
+What it does: Companies publish glossy sustainability reports full of promises ("we're committed to net-zero!"). This project checks if those words actually match reality — compares what a company says against its real ESG score (based on actual emissions/data, not marketing copy). Flags companies that talk big but score low — i.e., "greenwashers."
