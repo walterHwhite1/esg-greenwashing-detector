@@ -1,3 +1,6 @@
 company_id,company_name,ticker,sector,report_year
 1,Delta Air Lines,DAL,Airlines,2024
 2,Lufthansa Group,LHA,Airlines,2024
+3,American Airlines,AAL,Airlines,2024
+4,United Airlines,UAL,Airlines,2024
+5,IndiGo,INDIGO,Airlines,2024
