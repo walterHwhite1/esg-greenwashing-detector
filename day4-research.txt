@@ -1,0 +1,91 @@
+DAY 4 RESEARCH NOTES — ESG Greenwashing Detector
+Sector: Airlines
+Companies researched today: Delta Air Lines, Lufthansa Group
+
+============================================================
+DELTA AIR LINES
+============================================================
+
+EMISSIONS DATA (2024, reported)
+- Total emissions: ~80.8 billion kg CO2e
+- Scope 1: ~37.3 billion kg CO2e (primarily mobile combustion / jet fuel)
+- Scope 2: ~165.3 million kg CO2e (purchased electricity)
+- Scope 3: ~23.1 billion kg CO2e (largest contributor: fuel and energy-related activities, followed by investments and employee commute)
+
+For comparison, 2023 figures:
+- Total: ~56.0 billion kg CO2e
+- Scope 1: ~35.9 billion kg CO2e
+- Scope 2: ~188.4 million kg CO2e
+- Scope 3: ~20.1 billion kg CO2e
+
+CLAIM 1 — Specific (has real substance)
+Text: "Reduce well-to-wake Scope 1 and Scope 3 jet fuel GHG emissions 45% per revenue ton kilometer by 2035, from a 2019 baseline."
+Type: Future target
+Signals present: percentage (45%), defined scope (1 and 3), baseline year (2019), target year (2035)
+Source: Delta Difference 2024 Report / SBTi-approved target
+Notes: This is the "gold standard" specific claim — everything you need to fact-check later against actual 2035 performance.
+
+CLAIM 2 — Vague / weakened over time (strong greenwashing signal)
+Text: Originally called net-zero by 2050 the company's "ultimate goal"; recently reframed on Delta's own sustainability webpage as an "aspiration." Also quietly removed public reference to a 2030 sustainable aviation fuel (SAF) goal, while a company spokesperson told press Delta "remains committed" to 10% SAF by 2030.
+Type: General commitment (weakened) / inconsistent public messaging
+Signals present: no new number provided for the softened language; contradiction between public page and spokesperson statement
+Source: ESG Dive, April 2026
+Notes: Excellent example claim for your project — same company, two different public commitments to the same goal within a short time window, one weaker than the other.
+
+CLAIM 3 — Vague, contradicts own reported data
+Text: A Delta sustainability executive stated "anything beyond Scope 1 is like a rounding error."
+Type: Performance/framing claim
+Signals present: no number given; directly contradicted by Delta's own reported Scope 3 figure (23.1B kg — actually LARGER than Scope 1's 37.3B is close but Scope 3 is still material, not a rounding error)
+Source: Trellis, Dec 2024
+Notes: Good example of a claim that doesn't match the company's own disclosed numbers.
+
+External assurance: Delta references third-party verification of its net-zero progress reporting in its Delta Difference Report (not fully detailed in search results — verify page number when you read the actual PDF).
+
+============================================================
+LUFTHANSA GROUP
+============================================================
+
+EMISSIONS DATA
+- Lufthansa's 2024 Sustainability Fact Sheet reports Scope 2 and 3 emissions as "audited with limited assurance" (see report for exact tonnage — not fully captured in search results, confirm on PDF read).
+- 2024 was the first year Lufthansa prepared its non-financial declaration under CSRD / ESRS standards (EU's new mandatory reporting framework).
+- SAF-related savings example: of a reported reduction amount, 63,943 tons were attributed to direct SAF combustion savings (Scope 1) and 8,009 tons to upstream supply chain savings (Scope 3).
+
+CLAIM 1 — Regulatory action (real, documented — strongest case study)
+Text: A German court ordered Lufthansa to stop advertising flights using sustainability claims that relied on inaccurate calculations and carbon offsetting.
+Type: Performance / marketing claim, ruled misleading
+Source: Lexology Pro, March 2025
+Notes: This is a real legal precedent — use this to justify your project's premise in your README/methodology page.
+
+CLAIM 2 — Regulatory action (UK)
+Text: UK's Advertising Standards Authority banned a Lufthansa ad claiming the airline was "protecting the planet."
+Type: General commitment (marketing claim)
+Source: Euronews, March 2023
+Notes: No number, no baseline, no target — exactly the "vague claim" pattern from Day 3, and regulators agreed it was misleading enough to ban.
+
+CLAIM 3 — Ongoing EU investigation (sector-wide, includes Lufthansa subsidiaries)
+Text: The European Commission is questioning 20 airlines — including Lufthansa Group's Brussels Airlines, Lufthansa, SWISS, Austrian Airlines, Air Dolomiti, and Eurowings — over whether CO2 claims (offsetting, SAF) are backed by sound scientific evidence. Triggered by a complaint from BEUC (European Consumer Organisation) naming 17 airlines.
+Source: fl360aero, 2024 / Reuters
+Notes: Confirms Lufthansa's greenwashing exposure isn't a one-off — it's an active, multi-brand regulatory concern.
+
+CLAIM 4 — Industry pledge (response to scrutiny)
+Text: Lufthansa and KLM are among 21 European carriers that pledged to stop making misleading environmental claims, including ending "green fare" marketing language that implies a ticket purchase directly cancels out emissions.
+Source: Aviation A2Z, Nov 2025
+Notes: Useful as a "did they follow through" check later — you could track whether marketing language actually changed after this pledge.
+
+============================================================
+SECTOR-WIDE CONTEXT (useful for your methodology page)
+============================================================
+A study of 16 major European airline groups found:
+- Scope 1 CO2 reported by 94% of airlines
+- Scope 2 reported by only 56%
+- Scope 3 reported by only 50%
+- Non-CO2 emissions disclosed by just 38%
+
+This confirms Scope 3 under-disclosure is a real, sector-wide pattern — not something unique to the companies you picked. Good sentence for your project's methodology/limitations page.
+
+============================================================
+STILL TO DO (Day 4 remainder / carries into later days)
+============================================================
+- Companies not yet researched: American Airlines, United Airlines, IndiGo
+- Confirm exact Lufthansa Scope 1/2/3 tonnage by opening the actual PDF (Sustainability Fact Sheet 2024/2025, lufthansagroup.com)
+- Note page numbers once you open source PDFs directly, for the "source_url + page" fields your claims.csv will need

@@ -1,0 +1,7 @@
+claim_id,company_id,claim_text,claim_type,has_number,has_baseline_year,has_target_year,source
+1,1,"Reduce well-to-wake Scope 1 and 3 jet fuel GHG emissions 45% per revenue ton kilometer by 2035 from a 2019 baseline",future_target,1,1,1,Delta Difference 2024 Report
+2,1,"Net-zero by 2050 reframed from ultimate goal to aspiration; 2030 SAF goal reference removed from public page",general_commitment,0,0,0,ESG Dive April 2026
+3,1,"Anything beyond Scope 1 is like a rounding error",performance_claim,0,0,0,Trellis Dec 2024
+4,2,"Ordered by German court to stop advertising flights using sustainability claims relying on inaccurate calculations and carbon offsetting",performance_claim,0,0,0,Lexology Pro March 2025
+5,2,"Ad claiming airline is protecting the planet banned by UK ASA as misleading",general_commitment,0,0,0,Euronews March 2023
+6,2,"Pledged with 20 other European carriers to stop misleading environmental claims including green fare marketing language",general_commitment,0,0,0,Aviation A2Z Nov 2025

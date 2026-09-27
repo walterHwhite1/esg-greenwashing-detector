@@ -1,0 +1,4 @@
+company_id,year,scope_1_kg,scope_2_kg,scope_3_kg,unit,externally_assured
+1,2024,37300000000,165300000,23100000000,kg CO2e,1
+1,2023,35900000000,188400000,20100000000,kg CO2e,1
+2,2024,,,,kg CO2e,1
