@@ -7,29 +7,48 @@ import pandas as pd
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 DB_PATH = PROJECT_ROOT / "esg.db"
 
+COMPANY_SOURCE_TYPES = ("company_report", "company_website", "advertisement")
+
 
 def calculate_promotion_score(conn):
-    query = """
-        SELECT company_id, COUNT(*) AS claim_count
+    placeholders = ",".join("?" * len(COMPANY_SOURCE_TYPES))
+    query = f"""
+        SELECT company_id, COUNT(*) AS company_claim_count
         FROM claims
+        WHERE source_type IN ({placeholders})
         GROUP BY company_id
     """
-    df = pd.read_sql_query(query, conn)
-    df["promotion_score"] = (df["claim_count"] * 10).clip(upper=100)
+    df = pd.read_sql_query(query, conn, params=COMPANY_SOURCE_TYPES)
+    df["promotion_score"] = (df["company_claim_count"] * 20).clip(upper=100)
     return df[["company_id", "promotion_score"]]
 
 
 def calculate_substantiation_score(conn):
-    query = """
+    placeholders = ",".join("?" * len(COMPANY_SOURCE_TYPES))
+    query = f"""
         SELECT company_id,
-               SUM(CASE WHEN has_number=1 AND has_baseline_year=1 AND has_target_year=1 THEN 1 ELSE 0 END) AS specific_count,
-               COUNT(*) AS total_count
+               SUM(CASE WHEN source_type IN ({placeholders}) AND has_number=1 AND has_baseline_year=1 AND has_target_year=1 THEN 1 ELSE 0 END) AS specific_count,
+               SUM(CASE WHEN source_type IN ({placeholders}) THEN 1 ELSE 0 END) AS total_company_claims
         FROM claims
         GROUP BY company_id
     """
-    df = pd.read_sql_query(query, conn)
-    df["substantiation_score"] = (df["specific_count"] / df["total_count"] * 100).round(1)
+    params = COMPANY_SOURCE_TYPES * 2
+    df = pd.read_sql_query(query, conn, params=params)
+    df = df[df["total_company_claims"] > 0]
+    df["substantiation_score"] = (
+        df["specific_count"] / df["total_company_claims"] * 100
+    ).round(1)
     return df[["company_id", "substantiation_score"]]
+
+
+def calculate_external_scrutiny(conn):
+    query = """
+        SELECT company_id, COUNT(*) AS external_scrutiny_count
+        FROM claims
+        WHERE source_type IN ('regulatory_action', 'news_report')
+        GROUP BY company_id
+    """
+    return pd.read_sql_query(query, conn)
 
 
 def calculate_performance_score(conn):
@@ -44,18 +63,26 @@ def calculate_performance_score(conn):
     for company_id, group in df.groupby("company_id"):
         group = group.dropna(subset=["scope_1_kg"])
         if len(group) < 2:
-            results.append({"company_id": company_id, "performance_score": None})
+            results.append({"company_id": company_id, "performance_score": None, "scope_1_pct_change": None})
             continue
         latest = group.iloc[-1]["scope_1_kg"]
         previous = group.iloc[-2]["scope_1_kg"]
-        score = 100 if latest < previous else 0
-        results.append({"company_id": company_id, "performance_score": score})
+        pct_change = round((latest - previous) / previous * 100, 2)
+
+        if pct_change <= -2:
+            score = 100
+        elif pct_change <= 2:
+            score = 50
+        else:
+            score = 0
+
+        results.append({"company_id": company_id, "performance_score": score, "scope_1_pct_change": pct_change})
 
     return pd.DataFrame(results)
 
 
 def calculate_risk_score(row):
-    if pd.isna(row["performance_score"]):
+    if pd.isna(row["performance_score"]) or pd.isna(row["substantiation_score"]):
         return None
     return round(
         0.40 * row["promotion_score"]
@@ -85,17 +112,27 @@ def main():
     promotion = calculate_promotion_score(conn)
     substantiation = calculate_substantiation_score(conn)
     performance = calculate_performance_score(conn)
+    external = calculate_external_scrutiny(conn)
 
     scores = companies.merge(promotion, on="company_id", how="left")
     scores = scores.merge(substantiation, on="company_id", how="left")
     scores = scores.merge(performance, on="company_id", how="left")
+    scores = scores.merge(external, on="company_id", how="left")
+
+    scores["promotion_score"] = scores["promotion_score"].fillna(0)
+    scores["substantiation_score"] = scores["substantiation_score"].fillna(0)
+    scores["external_scrutiny_count"] = scores["external_scrutiny_count"].fillna(0).astype(int)
 
     scores["risk_score"] = scores.apply(calculate_risk_score, axis=1)
     scores["risk_label"] = scores["risk_score"].apply(assign_risk_label)
 
     scores = scores.sort_values("risk_score", ascending=False, na_position="last")
 
-    print(scores[["company_name", "promotion_score", "substantiation_score", "performance_score", "risk_score", "risk_label"]].to_string(index=False))
+    print(scores[[
+        "company_name", "promotion_score", "substantiation_score",
+        "performance_score", "scope_1_pct_change", "external_scrutiny_count",
+        "risk_score", "risk_label"
+    ]].to_string(index=False))
 
     scores.to_sql("scores", conn, if_exists="replace", index=False)
     conn.commit()

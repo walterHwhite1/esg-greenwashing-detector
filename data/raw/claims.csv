@@ -1,15 +1,15 @@
-claim_id,company_id,claim_text,claim_type,has_number,has_baseline_year,has_target_year,source
-1,1,"Reduce well-to-wake Scope 1 and 3 jet fuel GHG emissions 45% per revenue ton kilometer by 2035 from a 2019 baseline",future_target,1,1,1,Delta Difference 2024 Report
-2,1,"Net-zero by 2050 reframed from ultimate goal to aspiration; 2030 SAF goal reference removed from public page",general_commitment,0,0,0,ESG Dive April 2026
-3,1,"Anything beyond Scope 1 is like a rounding error",performance_claim,0,0,0,Trellis Dec 2024
-4,2,"Ordered by German court to stop advertising flights using sustainability claims relying on inaccurate calculations and carbon offsetting",performance_claim,0,0,0,Lexology Pro March 2025
-5,2,"Ad claiming airline is protecting the planet banned by UK ASA as misleading",general_commitment,0,0,0,Euronews March 2023
-6,2,"Pledged with 20 other European carriers to stop misleading environmental claims including green fare marketing language",general_commitment,0,0,0,Aviation A2Z Nov 2025
-7,3,"Reduce Scope 1 well-to-wake GHG intensity 45% by 2035 relative to a 2019 baseline, SBTi-validated",future_target,1,1,1,American Airlines 2024 Sustainability Report / AB 1305 Disclosure
-8,3,"Reduce Scope 2 emissions 40% by 2035 relative to a 2019 baseline, SBTi-validated",future_target,1,1,1,American Airlines 2024 Sustainability Report / AB 1305 Disclosure
-9,3,"Net zero greenhouse gas emissions by 2050",general_commitment,0,0,1,American Airlines Newsroom 2024
-10,4,"Reduce Scope 1, 2, and well-to-wake jet fuel GHG emissions including Scope 3 category 4 by 50% per revenue ton kilometer by 2035 from a 2019 base year, SBTi-validated",future_target,1,1,1,United Airlines Corporate Impact Report 2024
-11,4,"Emissions verified by ERM CVS with ISO 14064-3 limited assurance",performance_claim,0,0,0,United Airlines Corporate Impact Report 2024
-12,5,"Reduced GHG intensity from 74.6 to 60.5 grams CO2e per ASK between FY2016 and FY2024, no formal reduction target or SBTi validation attached",performance_claim,1,1,0,IndiGo ESG Report FY2023-24
-13,5,"Committed to 10% sustainable aviation fuel usage by 2030, joint MoU with Tata Group airlines",future_target,1,0,1,GreenAir News 2023
-14,5,"Environmental footprint somewhat stabilized in FY2024 due to leased aircraft covering capacity gaps from ongoing engine issues",performance_claim,0,0,0,IndiGo ESG Report FY2023-24
+claim_id,company_id,claim_text,claim_type,source_type,has_number,has_baseline_year,has_target_year,source_name,source_url,retrieval_date,confidence
+1,1,"Reduce well-to-wake Scope 1 and 3 jet fuel GHG emissions 45% per revenue ton kilometer by 2035 from a 2019 baseline",future_target,company_report,1,1,1,Delta Difference 2024 Report,https://www.delta.com/us/en/about-delta/corporate-responsibility,2026-09-25,high
+2,1,"Net-zero by 2050 reframed from ultimate goal to aspiration; 2030 SAF goal reference removed from public page",general_commitment,news_report,0,0,0,ESG Dive April 2026,,2026-09-25,medium
+3,1,"Anything beyond Scope 1 is like a rounding error",performance_claim,news_report,0,0,0,Trellis Dec 2024,,2026-09-25,medium
+4,2,"Ordered by German court to stop advertising flights using sustainability claims relying on inaccurate calculations and carbon offsetting",performance_claim,regulatory_action,0,0,0,Lexology Pro March 2025,,2026-09-25,high
+5,2,"Ad claiming airline is protecting the planet banned by UK ASA as misleading",general_commitment,regulatory_action,0,0,0,Euronews March 2023,,2026-09-25,high
+6,2,"Pledged with 20 other European carriers to stop misleading environmental claims including green fare marketing language",general_commitment,news_report,0,0,0,Aviation A2Z Nov 2025,,2026-09-25,medium
+7,3,"Reduce Scope 1 well-to-wake GHG intensity 45% by 2035 relative to a 2019 baseline, SBTi-validated",future_target,company_report,1,1,1,American Airlines 2024 Sustainability Report / AB 1305 Disclosure,,2026-09-25,high
+8,3,"Reduce Scope 2 emissions 40% by 2035 relative to a 2019 baseline, SBTi-validated",future_target,company_report,1,1,1,American Airlines 2024 Sustainability Report / AB 1305 Disclosure,,2026-09-25,high
+9,3,"Net zero greenhouse gas emissions by 2050",general_commitment,company_website,0,0,1,American Airlines Newsroom 2024,,2026-09-25,medium
+10,4,"Reduce Scope 1, 2, and well-to-wake jet fuel GHG emissions including Scope 3 category 4 by 50% per revenue ton kilometer by 2035 from a 2019 base year, SBTi-validated",future_target,company_report,1,1,1,United Airlines Corporate Impact Report 2024,,2026-09-25,high
+11,4,"Emissions verified by ERM CVS with ISO 14064-3 limited assurance",performance_claim,company_report,0,0,0,United Airlines Corporate Impact Report 2024,,2026-09-25,high
+12,5,"Reduced GHG intensity from 74.6 to 60.5 grams CO2e per ASK between FY2016 and FY2024, no formal reduction target or SBTi validation attached",performance_claim,company_report,1,1,0,IndiGo ESG Report FY2023-24,,2026-09-25,high
+13,5,"Committed to 10% sustainable aviation fuel usage by 2030, joint MoU with Tata Group airlines",future_target,news_report,1,0,1,GreenAir News 2023,,2026-09-25,medium
+14,5,"Environmental footprint somewhat stabilized in FY2024 due to leased aircraft covering capacity gaps from ongoing engine issues",performance_claim,company_report,0,0,0,IndiGo ESG Report FY2023-24,,2026-09-25,high

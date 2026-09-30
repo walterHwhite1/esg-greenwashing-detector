@@ -11,10 +11,14 @@ CREATE TABLE claims (
     company_id INTEGER,
     claim_text TEXT,
     claim_type TEXT,
+    source_type TEXT,
     has_number INTEGER,
     has_baseline_year INTEGER,
     has_target_year INTEGER,
-    source TEXT,
+    source_name TEXT,
+    source_url TEXT,
+    retrieval_date TEXT,
+    confidence TEXT,
     FOREIGN KEY (company_id) REFERENCES companies(company_id)
 );
 
