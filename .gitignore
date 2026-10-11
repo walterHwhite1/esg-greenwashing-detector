@@ -1,3 +1,7 @@
 .venv/
 __pycache__/
 *.pyc
+
+# Generated ETL data
+data/raw/reports/*.pdf
+data/extracted/*.jsonl
