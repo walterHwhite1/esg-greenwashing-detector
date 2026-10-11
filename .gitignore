@@ -5,3 +5,4 @@ __pycache__/
 # Generated ETL data
 data/raw/reports/*.pdf
 data/extracted/*.jsonl
+data/filtered/*.jsonl
